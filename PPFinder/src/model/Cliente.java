@@ -4,6 +4,7 @@
 package model;
 
 import java.io.IOException;
+import java.io.PrintStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -22,16 +23,24 @@ public class Cliente extends Thread
     String ip;
     Socket socket;
     DatagramSocket socketUDP;
+    PrintStream out;
 
     /******************************************************************
-    * Constructor de la clase cliente al cual se le pasa el puerto
-    * y la direccion ip del servidor
-    * ****************************************************************/
-    public Cliente(String ip, int puerto) 
+     * Constructor de la clase cliente al cual se le pasa el puerto
+     * y la direccion ip del servidor. Ademas se le pasa la salida de
+     * consola.
+     *
+     * @param ip         Ip del servidor
+     * @param puerto     Puerto del Servidor
+     * @param out        Salida de consola
+     ****************************************************************/
+    public Cliente(String ip, int puerto, PrintStream out) 
     {
         info = new INFO();
         this.puerto = puerto;
         this.ip = ip;
+        System.setOut(out);
+        System.setErr(out);
     }
     
     /******************************************************************

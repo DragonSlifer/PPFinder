@@ -1,15 +1,9 @@
 /*
- *  Role Game Character Creator
- *  Programa para crear fichas de personaes de rol en varios
- *  sistemas: Mundo de Tinieblas, NSD20, Malefic Time: Plenilunio,
- *  ...
- *  Permite además, guardar la ficha, editarla y enviarla por
- *  correo electrónico al director de partida.
+ *  
  */
 package view;
 
 import controller.Controller;
-import java.util.Timer;
 import java.util.TimerTask;
 
 /**
@@ -23,9 +17,9 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
-        controller = new Controller();
-        Timer time = new Timer();
-        time.schedule(new UpdateMapMethod(this), 0, 20000);  ///< Crea una tarea que se encarga de actualizar el mapa
+        controller = new Controller(Map);
+        //Timer time = new Timer();
+        //time.schedule(new UpdateMapMethod(this), 0, 20000);  ///< Crea una tarea que se encarga de actualizar el mapa
     }
 
     /**
@@ -341,7 +335,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel7.setFont(new java.awt.Font("Tarrget", 0, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("MAPA");
 
@@ -430,7 +424,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(BusquedaRápida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Herramientas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Mapa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())

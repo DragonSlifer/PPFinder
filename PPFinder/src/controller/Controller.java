@@ -8,6 +8,10 @@
  */
 package controller;
 
+import java.net.UnknownHostException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTextArea;
 import model.Model;
 
 /**
@@ -19,6 +23,15 @@ import model.Model;
 public class Controller {
     private Model model;
     
+    
+    public Controller(JTextArea console){
+        
+        try {
+            this.model = new Model(console);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**
      * Esta función cambia el texto del recuadro de ayuda rápida
      * @param command Sirve para determinar que ayuda se debe mostrar

@@ -1,3 +1,5 @@
+package model;
+
 import java.net.*;
 import java.io.*;
 import java.util.*;
@@ -8,16 +10,21 @@ public class Servidor extends Thread
     ServerSocket socketTCP;
     DatagramSocket socketUDP;
     Vector<Vector<Socket>> vec_clientes = new Vector<Vector<Socket>>(num_clientes);
+    PrintStream out;
     
     /******************************************************************
-    * Constructor de la clase a la que se le pasa desde el modelo el 
-    * numero de clientes con el que se va a trabajar
-    *
-    * @param num_clientes 
-    ******************************************************************/
-    public Servidor(int num_clientes)
+     * Constructor de la clase a la que se le pasa desde el modelo el 
+     * numero de clientes con el que se va a trabajar
+     *
+     * @param num_clientes 
+     * @param out 
+     ******************************************************************/
+    public Servidor(int num_clientes,PrintStream out)
     {
         this.num_clientes = num_clientes;
+        this.out = out;                     ///< Para los mensajes de la consola
+        System.setOut(out);
+        System.setErr(out);
     }
     
     /******************************************************************
